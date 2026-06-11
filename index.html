@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Book professional chauffeur-driven cars across 100+ cities in India. Experience the 20-year legacy of National Tour and Travel, born in Morena. Outstation cabs, local hourly hires, and airport transfers.">
+    <meta name="keywords" content="chauffeur car rental Morena, outstation cab, airport taxi, Gwalior to Delhi taxi, National Tour and Travel, hire Innova with driver, professional chauffeur India">
+    <meta name="author" content="National Tour and Travel">
+    <title>National Tour and Travel | Premium Chauffeur-Driven Car Rental India</title>
+    
+    <!-- CSS Stylesheet -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <!-- FontAwesome for Premium Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ==========================================================================
+         GLOBAL NAVIGATION & HEADER
+         ========================================================================== -->
+    <header class="header" id="main-header">
+        <div class="container">
+            <a href="#home" class="logo" id="header-logo">
+                <div class="logo-icon">
+                    <i class="fa-solid fa-user-tie"></i>
+                </div>
+                <div class="logo-text">
+                    National<span>Tour</span>
+                </div>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <a href="#how-it-works" class="nav-link">Services (Outstation/Local)</a>
+                <a href="#fleet" class="nav-link" id="nav-fleet-link">Our Fleet</a>
+                <a href="#about-us" class="nav-link">About Us</a>
+                <a href="#contact" class="nav-link">Contact Us</a>
+            </nav>
+            
+            <div class="nav-actions">
+                <a href="tel:+917562234567" class="btn btn-outline btn-sm" id="call-booking-btn" style="color: var(--color-primary); border-color: var(--color-primary); font-weight: 700;">
+                    <i class="fa-solid fa-phone-volume" style="color: var(--color-accent);"></i> +91 7562 234567
+                </a>
+                <a href="https://wa.me/917562234567?text=Hello%20National%20Tour%20and%20Travel,%20I%20would%20like%20to%20get%20a%20taxi%20booking%20quote." class="btn btn-primary btn-sm" id="get-quote-btn" target="_blank" style="background-color: #25d366; border-color: #25d366; color: white; box-shadow: 0 10px 20px -5px rgba(37, 211, 102, 0.3);">
+                    <i class="fa-brands fa-whatsapp"></i> Get a Quote
+                </a>
+                <div class="hamburger" id="hamburger-menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==========================================================================
+         MAIN VIEWS (HOME VIEW / SEARCH VIEW)
+         ========================================================================== -->
+    <main style="margin-top: 0;">
+        
+        <!-- HOME VIEW CONTAINER -->
+        <div id="home-view" class="view-container visible">
+            
+            <!-- HERO SECTION -->
+            <section class="hero" id="home">
+                <div class="container">
+                    <div class="hero-content">
+                        <div class="hero-badge">
+                            <span class="badge badge-accent"><i class="fa-solid fa-award"></i> 20+ Years of Excellence</span>
+                        </div>
+                        <h1 class="hero-title">
+                            India's Most Trusted Rides,<br><span>Driven by Professionals.</span>
+                        </h1>
+                        <p class="hero-subtitle">
+                            Sit back and relax with our premium chauffeur services. Strictly professional drivers, background-verified and route-expert, paired with impeccably maintained vehicles. Born in Morena, serving India.
+                        </p>
+                        
+                        <div class="hero-stats">
+                            <div class="hero-stat-item">
+                                <h3>100<span>+</span></h3>
+                                <p>Cities Covered</p>
+                            </div>
+                            <div class="hero-stat-item">
+                                <h3>20<span>+</span></h3>
+                                <p>Years Legacy</p>
+                            </div>
+                            <div class="hero-stat-item">
+                                <h3>100<span>%</span></h3>
+                                <p>Chauffeur Driven</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- ZOOMCAR-STYLE CHAUFFEUR BOOKING WIDGET -->
+                    <div class="booking-widget-container">
+                        <div class="booking-widget">
+                            <!-- Trip Type Tabs -->
+                            <div class="booking-tabs" style="display: flex; gap: 8px; margin-bottom: 24px; border-bottom: 1px solid var(--color-border); padding-bottom: 12px;">
+                                <button type="button" class="booking-tab-btn active" id="tab-outstation" data-type="outstation">
+                                    <i class="fa-solid fa-route"></i> Outstation
+                                </button>
+                                <button type="button" class="booking-tab-btn" id="tab-local" data-type="local">
+                                    <i class="fa-solid fa-clock"></i> Local Hourly
+                                </button>
+                                <button type="button" class="booking-tab-btn" id="tab-airport" data-type="airport">
+                                    <i class="fa-solid fa-plane-departure"></i> Airport Transfer
+                                </button>
+                            </div>
+
+                            <form class="booking-form" id="hero-booking-form" onsubmit="event.preventDefault();">
+                                
+                                <!-- Outstation Sub-toggle (Round Trip vs One Way) -->
+                                <div class="trip-subtoggle-container" id="outstation-subtoggle-group">
+                                    <div class="pill-switch-wrapper">
+                                        <button type="button" class="pill-switch-btn active" id="btn-roundtrip" data-sub="roundtrip">Round-Trip</button>
+                                        <button type="button" class="pill-switch-btn" id="btn-oneway" data-sub="oneway">One-Way Drop</button>
+                                    </div>
+                                </div>
+
+                                <!-- Pick-up Location Dropdown -->
+                                <div class="input-group">
+                                    <label class="input-label" for="pickup-location">Pick-up From</label>
+                                    <div class="input-field-wrapper">
+                                        <i class="fa-solid fa-location-dot input-icon"></i>
+                                        <select id="pickup-location" required>
+                                            <option value="" disabled selected>Select City / Airport</option>
+                                            <optgroup label="Headquarters">
+                                                <option value="Morena">Morena (Madhya Pradesh)</option>
+                                            </optgroup>
+                                            <optgroup label="Major Metro Cities">
+                                                <option value="Delhi NCR">Delhi NCR</option>
+                                                <option value="Mumbai">Mumbai</option>
+                                                <option value="Pune">Pune</option>
+                                                <option value="Bangalore">Bangalore</option>
+                                                <option value="Hyderabad">Hyderabad</option>
+                                            </optgroup>
+                                            <optgroup label="Transit & Regional Hubs">
+                                                <option value="Gwalior">Gwalior (MP)</option>
+                                                <option value="Agra">Agra (UP)</option>
+                                                <option value="Bhopal">Bhopal (MP)</option>
+                                                <option value="Indore">Indore (MP)</option>
+                                            </optgroup>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down select-arrow"></i>
+                                    </div>
+                                </div>
+                                
+                                <!-- Drop-off Location Dropdown -->
+                                <div class="input-group" id="dropoff-group">
+                                    <label class="input-label" for="dropoff-location">Drop-to Destination</label>
+                                    <div class="input-field-wrapper">
+                                        <i class="fa-solid fa-location-crosshairs input-icon"></i>
+                                        <select id="dropoff-location" required>
+                                            <option value="" disabled selected>Select Destination City / Airport</option>
+                                            <optgroup label="Outstation Outlets">
+                                                <option value="Delhi NCR">Delhi NCR</option>
+                                                <option value="Agra">Agra (UP)</option>
+                                                <option value="Gwalior">Gwalior (MP)</option>
+                                                <option value="Bhopal">Bhopal (MP)</option>
+                                                <option value="Pune">Pune</option>
+                                                <option value="Mumbai">Mumbai</option>
+                                                <option value="Morena">Morena (MP)</option>
+                                            </optgroup>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down select-arrow"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Local Package Selector (Only for Local hourly) -->
+                                <div class="input-group" id="local-package-group" style="display: none;">
+                                    <label class="input-label" for="local-package">Hourly Package</label>
+                                    <div class="input-field-wrapper">
+                                        <i class="fa-solid fa-gauge-high input-icon"></i>
+                                        <select id="local-package">
+                                            <option value="8h-80k" selected>8 Hours / 80 Kilometers (Standard)</option>
+                                            <option value="12h-120k">12 Hours / 120 Kilometers (Extended)</option>
+                                            <option value="4h-40k">4 Hours / 40 Kilometers (Short Transfer)</option>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down select-arrow"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Airport Transfer Options (Only for Airport) -->
+                                <div class="input-group" id="airport-trip-type-group" style="display: none;">
+                                    <label class="input-label" for="airport-transfer-type">Transfer Direction</label>
+                                    <div class="input-field-wrapper">
+                                        <i class="fa-solid fa-right-left input-icon"></i>
+                                        <select id="airport-transfer-type">
+                                            <option value="to-airport" selected>City to Airport Pick-up</option>
+                                            <option value="from-airport">Airport to City Drop-off</option>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down select-arrow"></i>
+                                    </div>
+                                </div>
+                                
+                                <!-- Pick-up Date & Time -->
+                                <div class="datetime-grid">
+                                    <div class="input-group">
+                                        <label class="input-label" for="trip-start">Pick-up Date & Time</label>
+                                        <div class="input-field-wrapper">
+                                            <i class="fa-solid fa-calendar-plus input-icon"></i>
+                                            <input type="datetime-local" id="trip-start" required>
+                                        </div>
+                                    </div>
+                                    <!-- Return Date & Time (Round Trip only) -->
+                                    <div class="input-group" id="return-datetime-group">
+                                        <label class="input-label" for="trip-end">Return Date & Time</label>
+                                        <div class="input-field-wrapper">
+                                            <i class="fa-solid fa-calendar-minus input-icon"></i>
+                                            <input type="datetime-local" id="trip-end">
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Live Distance Indicator / Duration -->
+                                <div class="duration-summary" id="duration-indicator" style="display: none;">
+                                    <i class="fa-solid fa-route"></i> Estimated Distance: <span id="duration-text">0 km</span>
+                                </div>
+                                
+                                <button type="submit" class="btn btn-primary" id="find-cars-btn">
+                                    <span>Search Cabs</span> <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- OUR ROOTS STORY (ABOUT US) -->
+            <section class="section" id="about-us">
+                <div class="container">
+                    <div class="roots-grid">
+                        
+                        <!-- Interactive Split-Screen Image Slider -->
+                        <div class="roots-visual" id="roots-visual-slider">
+                            <div class="roots-image-container">
+                                <!-- Historical Photo (1998/2004 style SUV) -->
+                                <img src="images/chambal_old_suv.png" alt="Our first SUV on Morena highways, 2004" class="roots-img historical">
+                                <!-- Modern fleet photo with Chauffeur -->
+                                <img src="images/modern_fleet.png" alt="Sleek modern fleet with professional chauffeur holding door" class="roots-img modern">
+                            </div>
+                            <div class="roots-visual-overlay">
+                                <span class="overlay-badge">Hover to reveal fleet</span>
+                                <span class="overlay-caption">2004 Chambal Roots vs Modern Chauffeur Fleet</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Narrative Text -->
+                        <div class="roots-text">
+                            <span class="badge badge-gold"><i class="fa-solid fa-circle-nodes"></i> Our Heritage</span>
+                            <h2 style="font-size: 2.5rem; margin: 16px 0 24px 0;">Born in Morena, Built for India.</h2>
+                            <p class="roots-lead">
+                                "It started in 2004 on the rugged highways of Morena with a single, well-loved SUV and a simple handshake promise: 'We will never let a traveler be stranded.'"
+                            </p>
+                            <p class="roots-paragraph">
+                                What began as a local transport solution to navigate the challenging terrains of the Chambal region quickly built a reputation for unbreakable reliability. For 20 years, we haven't just rented cars; we've engineered trust.
+                            </p>
+                            <p class="roots-paragraph">
+                                Today, National Tour and Travel has scaled from the heart of Morena to the entirety of India. We pair our massive fleet of meticulously serviced vehicles with highly trained, verified professional drivers. You don't just rent a car with us—you hire peace of mind. We know the Indian roads better than anyone, so you can sit back, relax, and enjoy the journey.
+                            </p>
+                            
+                            <div class="roots-highlights">
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fa-solid fa-user-shield"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="highlight-title">Expert Chauffeurs</h4>
+                                        <p class="highlight-desc">Background-verified, route-familiar, and strictly professional.</p>
+                                    </div>
+                                </div>
+                                <div class="highlight-item">
+                                    <div class="highlight-icon">
+                                        <i class="fa-solid fa-money-bill-transfer"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="highlight-title">Fixed & Clear Pricing</h4>
+                                        <p class="highlight-desc">No surge rates. Base fare, driver allowance, and toll costs clearly details.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- HOW IT WORKS (3-STEP PROCESS) -->
+            <section class="section" id="how-it-works" style="background-color: var(--color-bg-white);">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="badge badge-accent">Service Workflow</span>
+                        <h2>Seamless Journeys in 3 Simple Steps</h2>
+                        <p>Book a ride, meet your chauffeur, and travel stress-free.</p>
+                    </div>
+                    
+                    <div class="how-it-works-grid">
+                        <!-- Step 1 -->
+                        <div class="step-card">
+                            <div class="step-icon-wrapper">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                                <div class="step-num">1</div>
+                            </div>
+                            <h3 class="step-title">Plan your route</h3>
+                            <p class="step-desc">Enter your pick-up point, destination, date, and preferred package details. Instant quotes, zero booking hassle.</p>
+                        </div>
+                        <!-- Step 2 -->
+                        <div class="step-card">
+                            <div class="step-icon-wrapper">
+                                <i class="fa-solid fa-address-card"></i>
+                                <div class="step-num">2</div>
+                            </div>
+                            <h3 class="step-title">Meet your chauffeur</h3>
+                            <p class="step-desc">A background-verified, route-expert professional driver arrives at your pickup location with a pristine vehicle.</p>
+                        </div>
+                        <!-- Step 3 -->
+                        <div class="step-card">
+                            <div class="step-icon-wrapper">
+                                <i class="fa-solid fa-couch"></i>
+                                <div class="step-num">3</div>
+                            </div>
+                            <h3 class="step-title">Sit back & relax</h3>
+                            <p class="step-desc">Enjoy a safe, quiet, and comfortable journey while our chauffeur conquers highway traffic and manages tolls.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- VALUE PROPOSITIONS & SERVICES -->
+            <section class="section">
+                <div class="container">
+                    <div class="val-prop-showcase">
+                        <!-- Main Card -->
+                        <div class="val-prop-main">
+                            <span class="badge badge-accent" style="align-self: flex-start; margin-bottom: 20px;">Safety Audits</span>
+                            <h3>Engineering Trust & Reliability</h3>
+                            <p>Every single driver undergoes thorough verification, highway route assessments, and defensive driving checks. Our fleet is audited weekly in Morena, MP, to ensure mechanical perfection.</p>
+                            <div class="val-prop-features">
+                                <div class="val-feature-item">
+                                    <i class="fa-solid fa-user-clock"></i>
+                                    <div>
+                                        <h4>100% Punctuality</h4>
+                                        <p>Cab arrives 15 minutes prior to booking start time.</p>
+                                    </div>
+                                </div>
+                                <div class="val-feature-item">
+                                    <i class="fa-solid fa-hand-holding-dollar"></i>
+                                    <div>
+                                        <h4>1.5x Failure Refund</h4>
+                                        <p>If our cab breaks down or fails to arrive, get a 150% refund instantly.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-sm" style="align-self: flex-start; margin-top: 40px;" onclick="document.getElementById('nav-fleet-link').click();">Browse Available Fleet</button>
+                        </div>
+                        
+                        <!-- Secondary Card -->
+                        <div class="val-prop-side">
+                            <div class="val-side-icon">
+                                <i class="fa-solid fa-shield-halved"></i>
+                            </div>
+                            <h3 class="val-side-title">Professional Driver Focus</h3>
+                            <p class="val-side-desc">Our chauffeurs are highly trained in customer safety and etiquette, carry active GPS tracking, and check highway alerts so you avoid heavy traffic bottlenecks.</p>
+                            <div class="badge badge-gold"><i class="fa-solid fa-star"></i> Rated 4.9+ by Corporate Clients</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Stats Counter bar -->
+                    <div class="stats-bar">
+                        <div class="stat-box">
+                            <div class="stat-number" id="stat-cities">0</div>
+                            <div class="stat-label">Cities Covered</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number" id="stat-cars">0</div>
+                            <div class="stat-label">Active Fleet</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number" id="stat-trips">0</div>
+                            <div class="stat-label">Trips Driven</div>
+                        </div>
+                        <div class="stat-box">
+                            <div class="stat-number" id="stat-years">0</div>
+                            <div class="stat-label">Years of Heritage</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BECOME A HOST / PARTNER & CALCULATOR -->
+            <section class="section section-dark" id="become-host" style="display: none;">
+                <!-- Hidden since become host isn't requested in new chauffeur model, but we keep structure in JS to avoid errors -->
+            </section>
+
+            <!-- SOCIAL PROOF & TESTIMONIALS -->
+            <section class="section section-dark" style="background-color: var(--color-primary-dark); border-top: 1px solid rgba(255,255,255,0.03);">
+                <div class="container">
+                    <div class="section-header">
+                        <span class="badge badge-gold"><i class="fa-solid fa-star"></i> Reviews</span>
+                        <h2>Loved by Corporate & Family Travelers</h2>
+                        <p>Read why explorers choose National Tour and Travel for a comfortable, stress-free commute.</p>
+                    </div>
+                    
+                    <div class="testimonials-slider-container">
+                        <div class="testimonials-wrapper" id="testimonials-wrapper">
+                            <!-- Testimonial 1 -->
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <i class="fa-solid fa-quote-left testimonial-quote-icon"></i>
+                                    <div class="testimonial-stars">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">
+                                        "National Tour and Travel makes outstation travel a absolute breeze. Booked a Sedan from Morena to Delhi. The chauffeur, Satish, arrived 20 minutes early. He was extremely polite, drove carefully, and handled the Yamuna Expressway traffic like a true professional. Outstanding service!"
+                                    </p>
+                                    <div class="testimonial-author">
+                                        <span class="author-name">Rajesh Sharma</span>
+                                        <span class="author-meta">Corporate Director, Gwalior-Delhi Route</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimonial 2 -->
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <i class="fa-solid fa-quote-left testimonial-quote-icon"></i>
+                                    <div class="testimonial-stars">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">
+                                        "I regularly book their airport transfers for my elderly parents. Knowing that the cab comes with a verified, experienced driver who assists with heavy luggage gives me absolute peace of mind. Punctual, reliable, and clean vehicles."
+                                    </p>
+                                    <div class="testimonial-author">
+                                        <span class="author-name">Anjali Dixit</span>
+                                        <span class="author-meta">Family Customer, Delhi NCR</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Testimonial 3 -->
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card">
+                                    <i class="fa-solid fa-quote-left testimonial-quote-icon"></i>
+                                    <div class="testimonial-stars">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                    <p class="testimonial-text">
+                                        "Booked an Innova Crysta for a family trip from Mumbai to Pune. The vehicle was in immaculate condition, and the driver, Ramesh, was extremely familiar with the Western Ghat routes. Punctual, neat, and highly professional chauffeur service!"
+                                    </p>
+                                    <div class="testimonial-author">
+                                        <span class="author-name">Devendra Singh</span>
+                                        <span class="author-meta">Business Owner, Pune</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Slider Controls -->
+                        <div class="slider-controls">
+                            <button class="slider-arrow" id="prev-testimonial"><i class="fa-solid fa-chevron-left"></i></button>
+                            <div class="slider-dots" id="slider-dots">
+                                <!-- Dots generated dynamically -->
+                            </div>
+                            <button class="slider-arrow" id="next-testimonial"><i class="fa-solid fa-chevron-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- SEARCH RESULTS VIEW CONTAINER (Zoomcar style taxi results) -->
+        <div id="search-view" class="view-container hidden">
+            <section class="section" style="padding-top: calc(var(--header-height) + 30px);">
+                <div class="container">
+                    <div class="fleet-section-wrapper">
+                        
+                        <!-- Top search meta header -->
+                        <div class="search-header-panel">
+                            <div class="search-meta-info">
+                                <h2 class="search-meta-title" id="search-city-title">Outstation Cab Options</h2>
+                                <p class="search-meta-desc" id="search-dates-title">Morena to Delhi (350 kms) • 12 Jun 09:00 AM</p>
+                            </div>
+                            <div class="fleet-filter-bar">
+                                <button class="btn btn-secondary btn-sm" id="modify-search-btn"><i class="fa-solid fa-pen-to-square"></i> Modify Search</button>
+                                <select class="filter-select" id="sort-select">
+                                    <option value="recommended">Recommended</option>
+                                    <option value="price-low">Price: Low to High</option>
+                                    <option value="price-high">Price: High to Low</option>
+                                    <option value="rating">Best Rated</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <!-- Filter categories tabs inside Search View -->
+                        <div class="fleet-tabs" id="fleet-category-tabs">
+                            <button class="tab-btn active" data-category="all">All Cabs</button>
+                            <button class="tab-btn" data-category="hatchback">Hatchback</button>
+                            <button class="tab-btn" data-category="sedan">Sedan</button>
+                            <button class="tab-btn" data-category="suv">SUVs</button>
+                            <button class="tab-btn" data-category="mpv">MUV / MPV</button>
+                            <button class="tab-btn" data-category="luxury">Luxury</button>
+                        </div>
+                        
+                        <!-- Search Results Fleet Grid -->
+                        <div style="position: relative; min-height: 400px;">
+                            <div class="loading-overlay" id="fleet-loader">
+                                <div class="spinner"></div>
+                                <h3 style="font-family: var(--font-heading); color: var(--color-primary);">Auditing Route Log & Driver Roster...</h3>
+                                <p style="color: var(--color-text-muted); font-size: 0.9rem;">Matching you with safe, top-rated highway chauffeurs</p>
+                            </div>
+                            
+                            <div class="fleet-grid" id="fleet-results-grid">
+                                <!-- Cards injected dynamically via app.js -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- ==========================================================================
+         FOOTER & SEO LINKS
+         ========================================================================== -->
+    <footer class="footer" id="contact">
+        <div class="container">
+            <div class="footer-top">
+                <!-- Brand Info -->
+                <div class="footer-brand">
+                    <a href="#" class="logo">
+                        <div class="logo-icon">
+                            <i class="fa-solid fa-user-tie"></i>
+                        </div>
+                        <div class="logo-text">
+                            National<span>Tour</span>
+                        </div>
+                    </a>
+                    <p>
+                        Established in 2004, National Tour and Travel offers professional, background-verified chauffeur-driven car rentals across 100+ cities in India. Engineered for safety and absolute comfort.
+                    </p>
+                    <div class="social-links">
+                        <a href="https://wa.me/917562234567" class="social-btn" style="background-color: #25d366;"><i class="fa-brands fa-whatsapp"></i></a>
+                        <a href="#" class="social-btn"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-btn"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Popular Routes (SEO) -->
+                <div>
+                    <h3 class="footer-title">Popular Outstation Routes</h3>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Morena to Delhi Cab</a></li>
+                        <li><a href="#" class="footer-link">Delhi to Agra Expressway Taxi</a></li>
+                        <li><a href="#" class="footer-link">Mumbai to Pune Highway Cab</a></li>
+                        <li><a href="#" class="footer-link">Gwalior to Bhopal Route Drops</a></li>
+                        <li><a href="#" class="footer-link">Gwalior to Agra Cab Services</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Useful Links -->
+                <div>
+                    <h3 class="footer-title">Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#how-it-works" class="footer-link">Outstation Cabs</a></li>
+                        <li><a href="#how-it-works" class="footer-link">Local Hourly Rentals</a></li>
+                        <li><a href="#how-it-works" class="footer-link">Airport Transfer Cabs</a></li>
+                        <li><a href="#about-us" class="footer-link">Our Legacy</a></li>
+                        <li><a href="tel:+917562234567" class="footer-link">Call Support Hotline</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Headquarters info & Quick Booking -->
+                <div>
+                    <h3 class="footer-title">Corporate Office</h3>
+                    <div class="footer-contact-list" style="margin-bottom: 20px;">
+                        <div class="contact-item">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            <span>12, Highway Complex, Gwalior Road, Morena, Madhya Pradesh - 476001</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fa-solid fa-phone-volume"></i>
+                            <span>+91 7562 234567, +91 98270 XXXXX</span>
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/917562234567" class="app-btn" style="background-color: #25d366; color: white; border-color: #25d366;">
+                        <i class="fa-brands fa-whatsapp" style="font-size: 1.5rem;"></i>
+                        <div class="app-btn-text">
+                            <span class="app-btn-sub">Book via Chat</span>
+                            <span class="app-btn-main">WhatsApp Booking</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Dynamic FAQ Section at Footer base -->
+            <div style="border-top: 1px solid rgba(255,255,255,0.05); padding: 50px 0 20px 0; margin-bottom: 20px;">
+                <h3 class="footer-title" style="text-align: center; margin-bottom: 30px;">Frequently Asked Questions</h3>
+                <div class="faq-container">
+                    <!-- FAQ 1 -->
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <h3>How are Toll Taxes, State Entry Taxes, and Parking Fees handled?</h3>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-body">
+                            <div class="faq-content">
+                                Our quotes clearly specify whether Toll Taxes and State Entry Fees are included in the fare or are payable on actuals by the guest during the trip. There are absolutely no hidden markups on government tolls.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FAQ 2 -->
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <h3>Are driver night allowances charged extra?</h3>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-body">
+                            <div class="faq-content">
+                                A driver night allowance of ₹250 is automatically added to the billing ONLY if the travel extends between 10:00 PM and 6:00 AM. This allowance goes directly to the driver for overnight rest and support.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FAQ 3 -->
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <h3>What is the difference between One-Way Drop and Round-Trip billing?</h3>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-body">
+                            <div class="faq-content">
+                                One-Way Drop rates include a subsidized flat distance fee with no return trip driver charges. Round-trip rates require a minimum average driving limit of 250 km per calendar day, which includes driver overnight allowances and covers the vehicle's return distance.
+                            </div>
+                        </div>
+                    </div>
+                    <!-- FAQ 4 -->
+                    <div class="faq-item">
+                        <div class="faq-header">
+                            <h3>Is luggage space limited inside the cabs?</h3>
+                            <i class="fa-solid fa-chevron-down faq-icon"></i>
+                        </div>
+                        <div class="faq-body">
+                            <div class="faq-content">
+                                Yes. Each vehicle category displays the exact passenger seat capacity and standard luggage bag limits (e.g., 2 bags for Sedan, 4 bags for SUV). If you have extra luggage, you can request an overhead carrier during the checkout flow.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Copyright & Policies -->
+            <div class="footer-bottom">
+                <p>&copy; 2026 National Tour and Travel. All Rights Reserved. Born in Morena, MP. Strictly Chauffeur Driven.</p>
+                <div class="footer-bottom-links">
+                    <a href="#" class="footer-bottom-link">Privacy Policy</a>
+                    <a href="#" class="footer-bottom-link">Terms of Service</a>
+                    <a href="#" class="footer-bottom-link">Sitemap</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==========================================================================
+         CHECKOUT MODAL (MULTI-STEP FLOW)
+         ========================================================================== -->
+    <div class="modal" id="checkout-modal">
+        <div class="modal-overlay" id="checkout-overlay"></div>
+        <div class="modal-container">
+            <button class="modal-close" id="checkout-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            
+            <!-- Progress Steps Indicator -->
+            <div class="checkout-steps">
+                <div class="checkout-step active" id="step-nav-1">
+                    <div class="step-indicator">1</div>
+                    <span class="step-label">Add-ons</span>
+                </div>
+                <div class="checkout-step" id="step-nav-2">
+                    <div class="step-indicator">2</div>
+                    <span class="step-label">Passenger Info</span>
+                </div>
+                <div class="checkout-step" id="step-nav-3">
+                    <div class="step-indicator">3</div>
+                    <span class="step-label">Secure Booking</span>
+                </div>
+            </div>
+            
+            <!-- Modal Body Split Grid -->
+            <div class="checkout-body">
+                <div class="checkout-grid" id="checkout-grid-container">
+                    
+                    <!-- Left Side: Dynamic Forms -->
+                    <div>
+                        <!-- STEP 1: Add-ons & Route Settings -->
+                        <div class="checkout-pane active" id="checkout-pane-1">
+                            <h3 class="checkout-section-title"><i class="fa-solid fa-suitcase-rolling"></i> Customize Your Journey</h3>
+                            <div class="addon-list">
+                                <!-- Toll Package -->
+                                <div class="addon-card active" id="addon-protection">
+                                    <div class="addon-info">
+                                        <i class="fa-solid fa-road-barrier addon-icon"></i>
+                                        <div class="addon-details">
+                                            <h5>Express Toll Payment Package</h5>
+                                            <p>Pre-pay highway tolls. Zero toll stops; driver uses Fastag wallet (+₹450 flat).</p>
+                                        </div>
+                                    </div>
+                                    <div class="addon-checkbox"><i class="fa-solid fa-check"></i></div>
+                                </div>
+                                <!-- Extra Luggage Carrier -->
+                                <div class="addon-card" id="addon-km">
+                                    <div class="addon-info">
+                                        <i class="fa-solid fa-square-caret-up addon-icon"></i>
+                                        <div class="addon-details">
+                                            <h5>Overhead Luggage Carrier</h5>
+                                            <p>Need extra space? Get a secure metal roof-carrier installed (+₹199/day).</p>
+                                        </div>
+                                    </div>
+                                    <div class="addon-checkbox"><i class="fa-solid fa-check"></i></div>
+                                </div>
+                                <!-- Driver Preference -->
+                                <div class="addon-card" id="addon-gps">
+                                    <div class="addon-info">
+                                        <i class="fa-solid fa-volume-xmark addon-icon"></i>
+                                        <div class="addon-details">
+                                            <h5>Silent Journey Request</h5>
+                                            <p>Chauffeur will restrict talk to navigation & safety alerts (Free of charge).</p>
+                                        </div>
+                                    </div>
+                                    <div class="addon-checkbox"><i class="fa-solid fa-check"></i></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- STEP 2: Passenger Info -->
+                        <div class="checkout-pane" id="checkout-pane-2">
+                            <h3 class="checkout-section-title"><i class="fa-solid fa-id-card-clip"></i> Passenger Information</h3>
+                            <div class="checkout-form-grid">
+                                <div class="input-group">
+                                    <label class="input-label" for="passenger-name">Lead Passenger Name</label>
+                                    <div class="input-field-wrapper">
+                                        <i class="fa-solid fa-user input-icon"></i>
+                                        <input type="text" id="passenger-name" placeholder="Enter full name" required>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label class="input-label" for="passenger-phone">Contact Mobile Number</label>
+                                    <div class="input-field-wrapper">
+                                        <i class="fa-solid fa-phone input-icon"></i>
+                                        <input type="tel" id="passenger-phone" placeholder="10-digit mobile number" maxlength="10" required>
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label class="input-label" for="passenger-email">Email Address</label>
+                                    <div class="input-field-wrapper">
+                                        <i class="fa-solid fa-envelope input-icon"></i>
+                                        <input type="email" id="passenger-email" placeholder="name@domain.com">
+                                    </div>
+                                </div>
+                                <div class="input-group">
+                                    <label class="input-label" for="passenger-notes">Special Instructions for Chauffeur</label>
+                                    <div class="input-field-wrapper">
+                                        <i class="fa-solid fa-comment-dots input-icon" style="margin-top: -30px;"></i>
+                                        <textarea id="passenger-notes" style="width:100%; border:none; padding:16px 16px 16px 48px; background:transparent; font-family:inherit; min-height:80px; outline:none; resize:none;" placeholder="E.g., Elderly passenger, airport gate details, silent traveler"></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- STEP 3: Secure Booking Confirm -->
+                        <div class="checkout-pane" id="checkout-pane-3">
+                            <h3 class="checkout-section-title"><i class="fa-solid fa-shield-halved"></i> Payment and Booking Confirmation</h3>
+                            <div class="payment-methods">
+                                <button class="pay-method-btn active" data-method="card"><i class="fa-solid fa-credit-card"></i> Pay Online</button>
+                                <button class="pay-method-btn" data-method="upi"><i class="fa-solid fa-mobile-screen-button"></i> UPI</button>
+                                <button class="pay-method-btn" data-method="callback"><i class="fa-solid fa-phone"></i> Pay to Chauffeur</button>
+                            </div>
+                            
+                            <!-- Payment form cards -->
+                            <div class="checkout-form-grid" id="card-form-inputs">
+                                <div class="input-group">
+                                    <label class="input-label" for="card-number">Card Number</label>
+                                    <div class="input-field-wrapper">
+                                        <i class="fa-solid fa-credit-card input-icon"></i>
+                                        <div class="card-num-wrapper" style="width: 100%;">
+                                            <input type="text" id="card-number" placeholder="4532 0192 8374 9102" maxlength="19" required>
+                                            <i class="fa-brands fa-cc-visa card-brand-icon"></i>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="datetime-grid">
+                                    <div class="input-group">
+                                        <label class="input-label" for="card-expiry">Expiry Date</label>
+                                        <div class="input-field-wrapper">
+                                            <i class="fa-solid fa-calendar input-icon"></i>
+                                            <input type="text" id="card-expiry" placeholder="MM/YY" maxlength="5" required>
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label class="input-label" for="card-cvv">CVV</label>
+                                        <div class="input-field-wrapper">
+                                            <i class="fa-solid fa-lock input-icon"></i>
+                                            <input type="password" id="card-cvv" placeholder="•••" maxlength="3" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- UPI inputs -->
+                            <div class="checkout-form-grid" id="upi-form-inputs" style="display: none;">
+                                <div class="input-group">
+                                    <label class="input-label" for="upi-vpa">UPI ID / VPA</label>
+                                    <div class="input-field-wrapper">
+                                        <i class="fa-solid fa-at input-icon"></i>
+                                        <input type="text" id="upi-vpa" placeholder="username@upi">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Callback details -->
+                            <div id="callback-info-box" style="display: none; background-color: var(--color-accent-light); border: 1px dashed var(--color-accent); border-radius: var(--radius-md); padding: 20px; font-size: 0.9rem; color: var(--color-primary-light); line-height: 1.5;">
+                                <i class="fa-solid fa-circle-info" style="color: var(--color-accent); margin-right: 8px;"></i>
+                                **Pay to Chauffeur Mode Selected:** You don't need to pay online right now. Your cab is reserved. You can pay the total trip cost directly to the chauffeur via Cash or UPI at the end of your trip.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Right Side: Order Summary Card (Sidebar) -->
+                    <div>
+                        <div class="checkout-summary-card">
+                            <div class="summary-car-details">
+                                <img src="images/suv.png" alt="Selected Car" class="summary-car-img" id="summary-car-image">
+                                <div>
+                                    <h4 class="summary-car-title" id="summary-car-name">Mahindra Scorpio-N</h4>
+                                    <p class="summary-car-specs" id="summary-car-meta">4 Bags • 7 Seats • Chauffeur Included</p>
+                                </div>
+                            </div>
+                            
+                            <div class="summary-schedule">
+                                <div class="summary-schedule-item">
+                                    <span class="schedule-title">Pick-up Location:</span>
+                                    <span id="summary-location-text">Morena, MP</span>
+                                </div>
+                                <div class="summary-schedule-item">
+                                    <span class="schedule-title">Drop Location:</span>
+                                    <span id="summary-dropoff-text">Delhi NCR</span>
+                                </div>
+                                <div class="summary-schedule-item">
+                                    <span class="schedule-title">Pick-up Time:</span>
+                                    <span id="summary-pickup-time">12 Jun, 09:00 AM</span>
+                                </div>
+                                <div class="summary-schedule-item" id="summary-return-row">
+                                    <span class="schedule-title">Return Time:</span>
+                                    <span id="summary-return-time">15 Jun, 09:00 AM</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Bill breakdown -->
+                            <div class="bill-details">
+                                <div class="bill-row">
+                                    <span>Base Route Fare (<span id="summary-distance-kms">350 kms</span>)</span>
+                                    <span id="bill-base-price">₹4,550</span>
+                                </div>
+                                <div class="bill-row" id="bill-delivery-row">
+                                    <span>Toll & State entry charge</span>
+                                    <span id="bill-delivery-price">₹450</span>
+                                </div>
+                                <div class="bill-row" id="bill-insurance-row">
+                                    <span>Driver Allowance (per day)</span>
+                                    <span id="bill-insurance-price">₹300</span>
+                                </div>
+                                <div class="bill-row" id="bill-night-row" style="display: none;">
+                                    <span>Driver Night Charge (10 PM - 6 AM)</span>
+                                    <span id="bill-night-price">₹250</span>
+                                </div>
+                                <div class="bill-row" id="bill-addons-row" style="display: none;">
+                                    <span>Selected Add-ons</span>
+                                    <span id="bill-addons-price">₹0</span>
+                                </div>
+                                <div class="bill-row">
+                                    <span>GST / Transport Cess (5%)</span>
+                                    <span id="bill-tax-price">₹265</span>
+                                </div>
+                                <div class="bill-row discount" id="bill-discount-row" style="display: none;">
+                                    <span>Outstation Promo Discount</span>
+                                    <span id="bill-discount-price">-₹500</span>
+                                </div>
+                                <div class="bill-row total">
+                                    <span>Total Taxi Fare</span>
+                                    <span id="bill-total-price">₹5,565</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Promo input -->
+                            <div class="promo-form">
+                                <input type="text" class="promo-input" id="promo-code" placeholder="Promo Code (e.g. MORENA20)">
+                                <button class="promo-btn" id="promo-apply-btn">Apply</button>
+                            </div>
+                            
+                            <!-- Navigation Actions -->
+                            <div class="checkout-nav-actions">
+                                <button class="btn btn-secondary btn-sm" id="checkout-prev-btn" style="display: none;">Back</button>
+                                <button class="btn btn-primary btn-sm" id="checkout-next-btn">Next Step</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SUCCESS SCREEN (Toggled when booking confirms) -->
+                <div class="checkout-success-view" id="checkout-success-view" style="display: none;">
+                    <div class="success-icon-wrapper">
+                        <i class="fa-solid fa-circle-check"></i>
+                    </div>
+                    <h2 class="success-title">Taxi Booking Secured!</h2>
+                    <p class="success-desc">
+                        Your professional chauffeur-driven ride is confirmed. A driver assignment notification with vehicle plate number, route logs, and chauffeur contact info will be sent to your mobile via SMS and WhatsApp.
+                    </p>
+                    
+                    <!-- Digital receipt card -->
+                    <div class="receipt-card">
+                        <div class="receipt-header">
+                            <span class="receipt-id">Cab Booking ID: NTT-2026-90512</span>
+                            <span class="receipt-date">12 Jun 2026</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Vehicle Cab Class:</span>
+                            <span id="receipt-car-name" style="font-weight: 700;">Mahindra Scorpio-N</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Chauffeur Service:</span>
+                            <span style="font-weight: 600; color: var(--color-accent-hover);">Professional Assigned</span>
+                        </div>
+                        <div class="receipt-row">
+                            <span>Route:</span>
+                            <span id="receipt-delivery-mode">Morena to Delhi NCR</span>
+                        </div>
+                        <div class="receipt-row receipt-total">
+                            <span>Total Fare Payable:</span>
+                            <span id="receipt-total-paid">₹5,565</span>
+                        </div>
+                    </div>
+                    
+                    <button class="btn btn-primary" id="success-home-btn">Return to Home</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==========================================================================
+         QUOTE REQUEST MODAL
+         ========================================================================== -->
+    <div class="modal" id="quote-modal">
+        <div class="modal-overlay" id="quote-overlay"></div>
+        <div class="modal-container" style="max-width: 450px;">
+            <button class="modal-close" id="quote-close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="checkout-body" style="padding: 40px;">
+                <h3 class="checkout-section-title"><i class="fa-solid fa-file-invoice-dollar"></i> Get a Custom Quote</h3>
+                <p style="color: var(--color-text-muted); font-size: 0.9rem; margin-bottom: 24px;">Need a custom itinerary or corporate package? Let us know!</p>
+                
+                <form class="booking-form" id="quote-form" onsubmit="event.preventDefault();">
+                    <div class="input-group">
+                        <label class="input-label" for="quote-name">Your Name</label>
+                        <div class="input-field-wrapper">
+                            <i class="fa-solid fa-user input-icon"></i>
+                            <input type="text" id="quote-name" placeholder="John Doe" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label" for="quote-phone">Mobile Number</label>
+                        <div class="input-field-wrapper">
+                            <i class="fa-solid fa-phone input-icon"></i>
+                            <input type="tel" id="quote-phone" placeholder="10-digit number" maxlength="10" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label class="input-label" for="quote-route">Route Details</label>
+                        <div class="input-field-wrapper">
+                            <i class="fa-solid fa-route input-icon"></i>
+                            <input type="text" id="quote-route" placeholder="E.g., Morena-Gwalior-Delhi multiple stops" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary" id="quote-submit-btn" style="margin-top: 10px;">
+                        Submit Request
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JS Application Logic -->
+    <script src="app.js"></script>
+</body>
+</html>
