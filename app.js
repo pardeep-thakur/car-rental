@@ -11,7 +11,7 @@ const CAR_FLEET = [
         id: "cab-01",
         name: "Mahindra Scorpio-N",
         category: "suv",
-        image: "images/suv.png",
+        image: "images/suv.webp",
         seats: 7,
         luggage: "4 Bags",
         perKmRate: 18,
@@ -30,7 +30,7 @@ const CAR_FLEET = [
         id: "cab-02",
         name: "Hyundai i20 Elite",
         category: "hatchback",
-        image: "images/hatchback.png",
+        image: "images/hatchback.webp",
         seats: 5,
         luggage: "2 Bags",
         perKmRate: 11,
@@ -49,7 +49,7 @@ const CAR_FLEET = [
         id: "cab-03",
         name: "Honda City i-VTEC",
         category: "sedan",
-        image: "images/sedan.png",
+        image: "images/sedan.webp",
         seats: 5,
         luggage: "3 Bags",
         perKmRate: 13,
@@ -68,7 +68,7 @@ const CAR_FLEET = [
         id: "cab-04",
         name: "Toyota Innova Crysta",
         category: "mpv",
-        image: "images/mpv.png",
+        image: "images/mpv.webp",
         seats: 8,
         luggage: "6 Bags",
         perKmRate: 21,
@@ -87,7 +87,7 @@ const CAR_FLEET = [
         id: "cab-05",
         name: "Mercedes-Benz C-Class",
         category: "luxury",
-        image: "images/luxury.png",
+        image: "images/luxury.webp",
         seats: 5,
         luggage: "3 Bags",
         perKmRate: 38,
@@ -106,7 +106,7 @@ const CAR_FLEET = [
         id: "cab-06",
         name: "Maruti Swift",
         category: "hatchback",
-        image: "images/hatchback_swift.png",
+        image: "images/hatchback_swift.webp",
         seats: 5,
         luggage: "2 Bags",
         perKmRate: 11,
@@ -125,7 +125,7 @@ const CAR_FLEET = [
         id: "cab-07",
         name: "Mahindra Thar 4x4",
         category: "suv",
-        image: "images/suv_thar.png",
+        image: "images/suv_thar.webp",
         seats: 4,
         luggage: "2 Bags",
         perKmRate: 19,
@@ -144,7 +144,7 @@ const CAR_FLEET = [
         id: "cab-08",
         name: "Skoda Slavia TSI",
         category: "sedan",
-        image: "images/sedan_slavia.png",
+        image: "images/sedan_slavia.webp",
         seats: 5,
         luggage: "3 Bags",
         perKmRate: 14,
@@ -857,7 +857,7 @@ function renderFleetResults() {
         card.innerHTML = `
             <div class="car-card-img-wrapper">
                 <span class="badge badge-accent car-card-badge"><i class="fa-solid fa-user-tie"></i> Chauffeur Included</span>
-                <img src="${cab.image}" alt="${cab.name}" class="car-card-img" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\\'http://www.w3.org/2000/svg\\\' width=\\\'280\\\' height=\\\'180\\\' viewBox=\\\'0 0 280 180\\\' style=\\\'background:%23e2e8f0;\\\'><text x=\\\'50%\\\' y=\\\'50%\\\' dominant-baseline=\\\'middle\\\' text-anchor=\\\'middle\\\' font-family=\\\'sans-serif\\\' font-size=\\\'16\\\' fill=\\\'%2364748b\\\' >${cab.name}</text></svg>'">
+                <img src="${cab.image}" alt="${cab.name}" class="car-card-img" width="280" height="180" loading="lazy" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=\\\'http://www.w3.org/2000/svg\\\' width=\\\'280\\\' height=\\\'180\\\' viewBox=\\\'0 0 280 180\\\' style=\\\'background:%23e2e8f0;\\\'><text x=\\\'50%\\\' y=\\\'50%\\\' dominant-baseline=\\\'middle\\\' text-anchor=\\\'middle\\\' font-family=\\\'sans-serif\\\' font-size=\\\'16\\\' fill=\\\'%2364748b\\\' >${cab.name}</text></svg>'">
                 <div class="car-card-distance"><i class="fa-solid fa-star" style="color:var(--color-gold);"></i> ${cab.rating} (${cab.trips} trips)</div>
             </div>
             
